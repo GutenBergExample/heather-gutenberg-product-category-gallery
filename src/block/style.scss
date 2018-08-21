@@ -1,0 +1,51 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+
+.wp-block-cgb-heather {
+	display: block;
+	margin: 0 auto;
+
+	@media all and (min-width: 740px) {
+		grid-template-columns: repeat(2, 1fr);
+		display: grid;
+
+		grid-gap: 60px;
+		align-items: center;
+		ul {
+			margin-bottom: 0;
+		}
+	}
+	ul {
+		text-align: right;
+		margin-bottom: 30px;
+	}
+	ul > li {
+		list-style-type: none;
+	}
+	.heather-result {
+		width: 660px;
+		height: 660px;
+		object-fit: cover;
+	}
+	img {
+		//width: 100%;
+	}
+	h6 {
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-size: 15px;
+	}
+	.heather-filter {
+		font-size: 25px;
+		transition: all 0.5s ease;
+		color: #777777;
+		margin-right: 0;
+		&:hover,
+		&.active {
+			margin-right: 10px;
+		}
+	}
+}

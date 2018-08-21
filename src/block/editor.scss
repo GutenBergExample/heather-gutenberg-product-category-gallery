@@ -1,0 +1,18 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+
+.wp-block-cgb-heather {
+	.heather-scroller {
+		overflow-y: scroll;
+		scroll-snap-type: mandatory;
+		scroll-snap-type: y mandatory;
+
+		img {
+			scroll-snap-align: start;
+		}
+	}
+}
