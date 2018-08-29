@@ -7,11 +7,17 @@ jQuery( function( $ ) {
 		}
 		const container = $( '.heather-result__img' );
 
-		container
-			.fadeOut( 400, function() {
-				container.attr( 'src', src );
-			} )
-			.fadeIn( 400 );
+		container.fadeOut( 400, function() {
+			container.attr( 'src', src );
+			container
+				.load( () => {
+					// check if image has fully loaded before fading in
+					$( this ).fadeIn( 400 );
+				} )
+				.error( error => {
+					console.log( error );
+				} );
+		} );
 	}
 
 	const trigger = $( '.heather-filter' );
