@@ -28,7 +28,7 @@ export default class HeatherEdit extends Component {
 		number = number ? number : this.props.attributes.numberCategories;
 
 		fetch(
-			`http://heatherlynew.test/wp-json/heather/v1/getCategories/number/${ number }`
+			`/wp-json/heather/v1/getCategories/number/${ number }`
 		)
 			.then( results => {
 				return results.json();
