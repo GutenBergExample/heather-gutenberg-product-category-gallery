@@ -13,6 +13,10 @@ function heather_register_block() {
 					'type' 		=> 'number',
 					'default' => 4
 				),
+				'blockTitle' => array(
+					'type'	=> 'string',
+					'default'	=> 'Browse our products',
+				)
 			)
 		)
 	);
@@ -23,6 +27,7 @@ add_action('init', 'heather_register_block');
 function heather_render_callback( array $attributes ){
 
 	$numberCategories	= $attributes[ 'numberCategories' ];
+	$blockTitle	= $attributes[ 'blockTitle' ];
 
 	$args = array(
 		'number' 		 => $numberCategories,
@@ -42,7 +47,7 @@ function heather_render_callback( array $attributes ){
 
 	$container = '<div class="wp-block-cgb-heather">';
 
-	$listContainer = '<ul><h6>Browse our products</h6>';
+	$listContainer = '<ul><h6 class="heather-block-title">'.$blockTitle.'</h6>';
 	$imageContainer = '<div>';
 
 	$loop = 0;

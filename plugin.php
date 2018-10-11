@@ -5,7 +5,7 @@
  * Description: Show beautiful project galleries in your editor
  * Author: gubbigubbi
  * Author URI: https://breezydesigns.com.au/
- * Version: 0.1.0
+ * Version: 0.2
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *

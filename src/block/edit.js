@@ -1,6 +1,6 @@
 const { Component } = wp.element;
 
-const { InspectorControls } = wp.editor;
+const { InspectorControls, RichText } = wp.editor;
 const { RangeControl } = wp.components;
 
 const { __ } = wp.i18n;
@@ -27,9 +27,7 @@ export default class HeatherEdit extends Component {
 	fetchResults = number => {
 		number = number ? number : this.props.attributes.numberCategories;
 
-		fetch(
-			`/wp-json/heather/v1/getCategories/number/${ number }`
-		)
+		fetch( `/wp-json/heather/v1/getCategories/number/${ number }` )
 			.then( results => {
 				return results.json();
 			} )
@@ -42,7 +40,7 @@ export default class HeatherEdit extends Component {
 
 	render() {
 		const {
-			attributes: { numberCategories },
+			attributes: { numberCategories, blockTitle },
 			className,
 		} = this.props;
 
@@ -52,12 +50,12 @@ export default class HeatherEdit extends Component {
 			return (
 				<p className={ className }>
 					<Spinner />
-					{ __( 'Loading categories' ) }
+					{ __( 'Loading product categories' ) }
 				</p>
 			);
 		}
 		if ( 0 === categories.length ) {
-			return <p>{ __( 'No categories' ) }</p>;
+			return <p>{ __( 'No product categories' ) }</p>;
 		}
 
 		return (
@@ -74,6 +72,13 @@ export default class HeatherEdit extends Component {
 					/>
 				</InspectorControls>
 				<ul>
+					<RichText
+						tagName="h6"
+						className="heather-block-title"
+						value={ blockTitle }
+						onChange={ blockTitle => setAttributes( { blockTitle } ) }
+						placeholder={ __( 'Browse our products' ) }
+					/>
 					{ categories &&
 						categories.map( category => {
 							return <li key={ category.id }>{ category.name }</li>;
